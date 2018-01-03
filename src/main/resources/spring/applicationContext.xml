@@ -2,29 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!-- 使用按后调用destroy-method="close" 中的close方法归还链接给连接池 -->
-   <!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/shoop" />
-        <property name="user" value="root" />
-        <property name="password" value="123456" />
-        <property name="maxPoolSize" value="50"/>
-        <property name="minPoolSize" value="2"/>
-        <property name="maxIdleTime" value="60"/>
-    </bean>
-    &lt;!&ndash;sqlsessionFactory bean&ndash;&gt;
-    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
-        &lt;!&ndash;<property name="typeAliasesPackage" value=""/>&ndash;&gt;
-        <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath:mybatis/mybatis-config.xml"/>
-    </bean>
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        &lt;!&ndash;自动扫描 mapper的sql接口，就不需要mapper.xml去配置扫描&ndash;&gt;
-        <property name="beanName" value="dao.*"/>
-    </bean>-->
 
+    <!--开启注解-->
+    <!--<mvc:annotation-driven></mvc:annotation-driven>-->
     <!--视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--前缀-->
@@ -32,7 +15,9 @@
         <!--后缀-->
         <property name="suffix" value=".jsp"></property>
     </bean>
+    <!--指定基础包-->
+    <context:component-scan base-package="*"></context:component-scan>
     <!--自动扫描的包-->
-<context:component-scan base-package="service.*,view"></context:component-scan>
+    <context:component-scan base-package="service.*,view"></context:component-scan>
     <!--<context:component-scan base-package="example.controller"/>-->
 </beans>

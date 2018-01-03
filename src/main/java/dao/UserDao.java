@@ -7,10 +7,12 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Component;
 
 /**
  * @author 植杨爽
  */
+@Component
 public interface UserDao {
     /**
      * 添加用户信息包含地址信息或者为null
@@ -18,8 +20,7 @@ public interface UserDao {
      */
     @Insert("insert into u_data(u_name,u_pwd),values(" +
             "#{userData.userName}," +
-            "#{userData.passWord});" +
-            "#{shoop.num}")
+            "#{userData.passWord});")
     void addUserData(UserData userData);
 
     /**

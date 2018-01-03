@@ -1,6 +1,9 @@
 package service;
 
 import entitys.OrderForm;
+import entitys.UserData;
+
+import java.util.List;
 
 /**
  * 订单操作类
@@ -17,5 +20,11 @@ public interface OrderFormService {
      * @param orderForm
      */
     void deleteOrderFrom(OrderForm orderForm);
+
+    /**
+     * 查询所有订单
+     * @return
+     */
+    List<OrderForm> selectOrderForm(UserData ud);
 
 }

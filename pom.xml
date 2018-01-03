@@ -156,6 +156,13 @@
       <artifactId>c3p0</artifactId>
       <version>0.9.5.2</version>
     </dependency>
+    <!--mybatis参与到spring事务中的依赖包-->
+    <dependency>
+      <groupId>aopalliance</groupId>
+      <artifactId>aopalliance</artifactId>
+      <version>1.0</version>
+    </dependency>
+
     <!--c3p0的辅助包，没有此包会包异常-->
     <dependency>
       <groupId>com.mchange</groupId>

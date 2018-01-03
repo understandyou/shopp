@@ -5,6 +5,7 @@ import entitys.ShoopingCart;
 import entitys.UserData;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * 购物车操作
  * @author 植杨爽
  */
+@Component
 public interface ShoopDao {
     /**
      * 添加到购物车

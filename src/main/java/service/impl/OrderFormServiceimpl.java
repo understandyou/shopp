@@ -4,6 +4,7 @@ import dao.OrderFormDao;
 import entitys.OrderForm;
 import entitys.UserData;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,11 +30,13 @@ import java.util.List;
  *
  */
 @Transactional(propagation = Propagation.NESTED, timeout = 1000, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
-@Repository("orderFormService")
+@Service("orderFormService")
 public class OrderFormServiceimpl implements OrderFormService {
     //注入一个订单操作类
-    @Resource(name = "orderFormDao")
+    //@Resource(name = "orderFormDao")
     private OrderFormDao orderFormDao;
+
+
     /**
      * 添加一个订单
      *

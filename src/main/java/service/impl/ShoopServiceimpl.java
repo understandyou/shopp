@@ -2,6 +2,7 @@ package service.impl;
 
 import entitys.ShoopingCart;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +23,7 @@ import java.util.List;
         *
         */
 @Transactional(propagation = Propagation.NESTED, timeout = 1000, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
-@Repository("shoopService")
+@Service("shoopService")
 public class ShoopServiceimpl implements ShoopService{
     /**
      * 添加到购物车

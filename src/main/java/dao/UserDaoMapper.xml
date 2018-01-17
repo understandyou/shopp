@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.UserDao">
+
+
+    <!--<select id="selectShoop" parameterType="userData">-->
+        <!--select * from shooping_cart where u_id=#{userDate.userId}-->
+    <!--</select>-->
+
+
+
+    <insert id="addUserData" parameterType="entitys.UserData">
+          insert into u_data(u_name,u_pwd)
+          values(#{userData.userName},#{userData.passWord})
+    </insert>
+    <insert id="addUserInfor" parameterType="entitys.UserInfor">
+        insert into u_infor(u_id,address,phone)
+        values(#{userInfor.userData.userId},#{userInfor.address},#{userInfor.phone})
+    </insert>
+
+
+
+    <delete id="deleteUserInfor" parameterType="entitys.UserInfor">
+        delete from u_infor where u_infor_id=#{userInfor.userInforId}
+    </delete>
+    <update id="updateUserInfor" parameterType="entitys.UserInfor">
+        update u_infor set where u_infor_id=#{userInfor.userInforId}
+    </update>
+</mapper>

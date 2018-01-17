@@ -7,7 +7,16 @@
 
 
     <!--开启注解-->
-    <!--<mvc:annotation-driven></mvc:annotation-driven>-->
+    <!--此注解绘默认项spring中注册一下两个bean,也可以直接一个一个配置，mvc是简写从而不必一个一个配置
+        向 spring 容器中注册 DefaultAnnotationHandlerMapping。
+        向 spring 容器中注册 AnnotationMethodHandlerAdapter。
+        配置一些 messageconverter。
+    -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <context:annotation-config/>
+    <!--<bean class="org.springframework.context.annotation.ContextAnnotationAutowireCandidateResolver">-->
+        <!--<property name=""-->
+    <!--</bean>-->
     <!--视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--前缀-->
@@ -16,8 +25,7 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
     <!--指定基础包-->
-    <context:component-scan base-package="*"></context:component-scan>
+    <context:component-scan base-package="dao,entitys"></context:component-scan>
     <!--自动扫描的包-->
-    <context:component-scan base-package="service.*,view"></context:component-scan>
-    <!--<context:component-scan base-package="example.controller"/>-->
+    <context:component-scan base-package="service.impl,view"></context:component-scan>
 </beans>

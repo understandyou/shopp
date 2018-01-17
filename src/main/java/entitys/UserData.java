@@ -1,12 +1,20 @@
 package entitys;
 
-import java.util.List;
+
 
 public class UserData {
     private Integer userId;
     private String userName;
     private String passWord;
-    private List<UserInfor> userInfors;
+
+    @Override
+    public String toString() {
+        return "UserData{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                '}';
+    }
 
     /**
      * 用户id
@@ -51,18 +59,4 @@ public class UserData {
         this.passWord = passWord;
     }
 
-    /**
-     * 用户详细信息,主要为地址信息
-     */
-    public List<UserInfor> getUserInfors() {
-        return userInfors;
-    }
-
-    /**
-     * 用户详细信息，主要为地址信息
-     * @return
-     */
-    public void setUserInfors(List<UserInfor> userInfors) {
-        this.userInfors = userInfors;
-    }
 }

@@ -3,7 +3,9 @@ package service.impl;
 import dao.UserDao;
 import entitys.UserData;
 import entitys.UserInfor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,10 +28,11 @@ import javax.naming.Name;
         *
         */
 @Transactional(propagation = Propagation.NESTED, timeout = 1000, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
-@Repository("userService")
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
     //注入一个用户信息操作类
+//    @Autowired
     @Resource(name = "userDao")
     private UserDao userDao;
     /**
@@ -47,7 +50,7 @@ public class UserServiceImpl implements UserService {
      * @param userInfor
      */
     public void addUserInfor(UserInfor userInfor) {
-
+        userDao.addUserInfor(userInfor);
     }
 
     /**

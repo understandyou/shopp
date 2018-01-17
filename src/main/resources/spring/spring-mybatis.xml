@@ -21,13 +21,22 @@
 
     <!-- 配置声明式事务(开启事务) -->
     <tx:annotation-driven transaction-manager="txManger" />
-
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--自动扫描的mapper的sql接口-->
-        <property name="basePackage" value="dao.*"/>
+    <!--自动扫描并且创建MapperFactoryBaen从而替代手工实现daoImpl接口
+        根据指定包(批量)扫描Mapper接口并生成实例
+    -->
+    <bean id="scannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
-    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!--根据指定的Mapper接口生成Bean实例,用于少量-->
+<!--    <bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="dao.UserDao.*"/>这里value的值为接口路径
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:dao/*.xml"/>
+        <!--<property name="typeAliasesPackage" value="dao"/>-->
     </bean>
 
 </beans>

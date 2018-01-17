@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ShoopDao">
+    <resultMap id="ShoopingCart" type="entitys.ShoopingCart">
+        <constructor>
+            <idArg column="shoop" javaType="int"/>
+        </constructor>
+        <id property="shoopingCartId" column="shooping_cart_id"/>
+        <result property="Integer" column="num" />
+        <!--映射userData-->
+        <association property="userData" column="u_id" javaType="entitys.UserData">
+            <id property="userId" column="u_id" />
+            <result property="userName" column="u_name"></result>
+            <result property="passWord" column="u_pwd"></result>
+        </association>
+        <!--读作：oftype类型的javatype的proerty集合-->
+        <collection property="Produce" javaType="List" ofType="entitys.Produce" column="produce_id">
+            <id property="produce" column="prod_id" />
+            <result property="prodCurrent" column="prod_current"/>
+            <result property="prodPrice" column="prod_price"/>
+            <result property="prodDescribe" column="prod_describe"/>
+            <collection property="vendors" column="vend_id">
+                <result property="vendPrice" column="vend_price"/>
+                <result property="VendAddress" column="vend_address" />
+                <result property="vendPhone" column="vend_phone" />
+            </collection>
+            <!--<discriminator javaType="Produce" column="produce_id">
+                <case value="1" resultType="entitys.Produce"/>
+            </discriminator>-->
+        </collection>
+    </resultMap>
+
+    <select id="selectShoop" parameterType="entitys.UserData">
+        select * from shooping_cart where u_id=#{userDate.userId}
+    </select>
+    <insert id="addShoop" parameterType="entitys.ShoopingCart">
+        insert into shooping_cart(u_id,produce_id,num)
+        values(#{shoop.userData.userId},#{shoop.produce.prodId}),#{shoop.num}
+    </insert>
+    <delete id="deleteShoop" parameterType="entitys.ShoopingCart">
+        delete from shooping_cart
+        where u_id=#{shoop.userData.userId} and shooping_cart_id=#{shoop.shoopingCart}
+    </delete>
+    <update id="updateShoop" parameterType="entitys.ShoopingCart">
+        update shooping_cart set shooping_cart=#{shopingCart.num} where u_id=#{shoopingCart.userData.userId}
+    </update>
+</mapper>

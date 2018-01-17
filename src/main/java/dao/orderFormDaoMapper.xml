@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.OrderFormDao">
+    <resultMap id="of" type="entitys.OrderForm">
+        <!--标签顺序会有影响-->
+        <!--<constructor>-->
+            <!--<idArg column="order" javaType="int"/>-->
+        <!--</constructor>-->
+        <id property = "orderFormId" column = " order_form_id"></id>
+        <result property = "orderPrice" column = "order_price"></result>
+        <!--对应实体类-->
+        <association property="userData" javaType="entitys.UserData" column="u_id">
+            <id property="userId" column="u_id" />
+            <!--<result property="userId" column="u_id" />-->
+            <result property="userName" column="u_name"></result>
+            <result property="passWord" column="u_pwd"></result>
+            <!--discriminator – 使用结果值来决定使用哪个结果映射
+                case – 基于某些值的结果映射
+                嵌入结果映射 – 这种情形结果也映射它本身,因此可以包含很多相 同的元素,或者它可以参照一个外部的结果映射。
+            -->
+            <!--<discriminator javaType="int" column="draft">
+                <case value="1" resultType="DraftPost"/>
+            </discriminator>-->
+        </association>
+        <!--读作：oftype类型的javatype的proerty集合-->
+        <collection property="produce" javaType="List" ofType="entitys.Produce">
+            <id property="produce" column="prod_id" />
+            <result property="prodCurrent" column="prod_current"/>
+            <result property="prodPrice" column="prod_price"/>
+            <result property="prodDescribe" column="prod_describe"/>
+            <collection property="vendors" column="vend_id">
+                <result property="vendPrice" column="vend_price"></result>
+                <result property="VendAddress" column="vend_address" />
+                <result property="vendPhone" column="vend_phone" />
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="selectOrderForm" parameterType="entitys.UserData" resultMap="of">
+        select * from order_form where u_id= = #{userId}
+    </select>
+    <insert id="addOrderFrom" parameterType="entitys.OrderForm" >
+        insert into order_form(u_id,prod_id,order_price) values(#{orderForm.userId},#{orderForm.prodId},#{orderFrom.orderPrice})
+    </insert>
+    <delete id="deleteOrderFrom" parameterType="entitys.OrderForm">
+        delete from order_form where order_form_id=#{orderForm.userId}
+    </delete>
+</mapper>

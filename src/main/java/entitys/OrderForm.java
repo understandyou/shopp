@@ -2,9 +2,58 @@ package entitys;
 
 public class OrderForm {
     private Integer orderFormId;
-    private Integer userId;
-    private Integer prodId;
+    private UserData userData;
+    private Produce Produce;
     private Double orderPrice;
+    private UserInfor userInfor;
+
+    /**
+     * 用户详细信息
+     * @return
+     */
+    public UserInfor getUserInfor() {
+        return userInfor;
+    }
+
+    /**
+     * 用户详细信息
+     * @param userInfor
+     */
+    public void setUserInfor(UserInfor userInfor) {
+        this.userInfor = userInfor;
+    }
+
+    /**
+     * 用户信息
+     * @return
+     */
+    public UserData getUserData() {
+        return userData;
+    }
+
+    /**
+     * 用户信息
+     * @param userData
+     */
+    public void setUserData(UserData userData) {
+        this.userData = userData;
+    }
+
+    /**
+     * 商品
+     * @return
+     */
+    public entitys.Produce getProduce() {
+        return Produce;
+    }
+
+    /**
+     * 商品
+     * @param produce
+     */
+    public void setProduce(entitys.Produce produce) {
+        Produce = produce;
+    }
 
     /**
      * 订单ID
@@ -22,35 +71,6 @@ public class OrderForm {
         this.orderFormId = orderFormId;
     }
 
-    /**
-     * 订单对应的用户ID
-     * @return
-     */
-    public Integer getUserId() {
-        return userId;
-    }
-
-    /**
-     * 订单对应的用户ID
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * 订单对应的商品ID
-     * @return
-     */
-    public Integer getProdId() {
-        return prodId;
-    }
-
-    /**
-     * 订单对应的商品ID
-     */
-    public void setProdId(Integer prodId) {
-        this.prodId = prodId;
-    }
 
     /**
      * 订单的成交价

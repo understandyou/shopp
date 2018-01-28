@@ -13,13 +13,13 @@ import org.springframework.stereotype.Repository;
 /**
  * @author 植杨爽
  */
-//@Repository("userDao")
+//@Repository("userDao"),有mybatis的mapperScanner类扫描后就不要需要给这个类标注
 public interface UserDao {
     /**
      * 添加用户信息包含地址信息或者为null
      * @param userData
      */
-    void addUserData(UserData userData);
+    Integer addUserData(UserData userData);
 
     /**
      * 添加地址信息

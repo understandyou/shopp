@@ -31,17 +31,18 @@
     </resultMap>
 
     <select id="selectShoop" parameterType="entitys.UserData">
-        select * from shooping_cart where u_id=#{userDate.userId}
+        select * from shooping_cart where u_id=#{userId}
     </select>
-    <insert id="addShoop" parameterType="entitys.ShoopingCart">
+    <!-- keyproperty自动填充到bean对应的属性中，用于插入数据后返回当前的主键id-->
+    <insert id="addShoop" parameterType="entitys.ShoopingCart" useGeneratedKeys="true" keyProperty="shoopingCartId" keyColumn="shooping_cart_id">
         insert into shooping_cart(u_id,produce_id,num)
-        values(#{shoop.userData.userId},#{shoop.produce.prodId}),#{shoop.num}
+        values(#{userData.userId},#{produce.prodId}),#{num}
     </insert>
     <delete id="deleteShoop" parameterType="entitys.ShoopingCart">
         delete from shooping_cart
-        where u_id=#{shoop.userData.userId} and shooping_cart_id=#{shoop.shoopingCart}
+        where u_id=#{userData.userId} and shooping_cart_id=#{shoopingCart}
     </delete>
     <update id="updateShoop" parameterType="entitys.ShoopingCart">
-        update shooping_cart set shooping_cart=#{shopingCart.num} where u_id=#{shoopingCart.userData.userId}
+        update shooping_cart set shooping_cart=#{num} where u_id=#{userData.userId}
     </update>
 </mapper>

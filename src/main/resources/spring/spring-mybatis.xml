@@ -6,7 +6,7 @@
     <!-- 使用按后调用destroy-method="close" 中的close方法归还链接给连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/shoop?characterEncoding=utf-8\&amp;autoReconnect=true\&amp;failOverReadOnly=false&amp;allowMultiQueries=true"/>
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/shoop?characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;allowMultiQueries=true"/>
         <property name="user" value="root"/>
         <property name="password" value="123456"/>
         <property name="maxPoolSize" value="50"/>

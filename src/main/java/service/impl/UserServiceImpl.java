@@ -41,7 +41,9 @@ public class UserServiceImpl implements UserService {
      * @param userData
      */
     public void addUserData(UserData userData) {
+        System.out.println("userData持久化前:"+userData);
         userDao.addUserData(userData);
+        System.out.println("userData持久化成功-------华丽的分割线----------->");
     }
 
     /**
@@ -50,7 +52,15 @@ public class UserServiceImpl implements UserService {
      * @param userInfor
      */
     public void addUserInfor(UserInfor userInfor) {
-        userDao.addUserInfor(userInfor);
+        System.out.println("地址信息栏添加前");
+        System.out.println("值："+userInfor);
+        try{
+            userDao.addUserInfor(userInfor);
+        }catch(Exception ex){
+            System.out.println("地址信息异常："+ex.getMessage());
+            throw ex;
+        }
+        System.out.println("地址信息添加成功");
     }
 
     /**

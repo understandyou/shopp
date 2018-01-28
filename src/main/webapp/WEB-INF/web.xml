@@ -15,11 +15,11 @@
       <!--http://blog.csdn.net/cquwel/article/details/59495083-->
       <!--配置dispatcher.xml作为mvc的配置文件-->
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath*:/spring/applicationContext.xml</param-value>
+      <param-value>classpath:/spring/applicationContext.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
     <!--启用异步线程-->
-    <!--<async-supported>true</async-supported>-->
+    <async-supported>true</async-supported>
   </servlet>
   <servlet-mapping>
     <servlet-name>springMVC</servlet-name>
@@ -32,6 +32,13 @@
      -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
+  <!--把spring文件夹下的xml加入到配置文件中-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <!--<param-value>classpath:../resources/spring/applicationContext.xml</param-value>-->
+      <param-value>classpath:/spring/spring-mybatis.xml</param-value>
+  </context-param>
   <!--   start -拦截所有设置字符集为UTF-8-->
   <filter>
     <filter-name>setEncoding</filter-name>
@@ -43,18 +50,20 @@
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
+    <!--设置启用转换编码,经测试不写也能成功设置编码-->
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
   </filter>
   <filter-mapping>
     <filter-name>setEncoding</filter-name>
-    <url-pattern>/</url-pattern>
+    <!--经测试"/"这种写法无法触发
+        需要写为"/*"这个
+    -->
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
-<!-- end  -->
-  <!--把spring文件夹下的xml加入到配置文件中-->
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <!--<param-value>classpath:../resources/spring/applicationContext.xml</param-value>-->
-      <param-value>classpath:/spring/spring-mybatis.xml</param-value>
-  </context-param>
+  <!-- end  -->
     <!-- 配置spring 监听器-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

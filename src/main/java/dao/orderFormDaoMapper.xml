@@ -39,10 +39,16 @@
     <select id="selectOrderForm" parameterType="entitys.UserData" resultMap="of">
         select * from order_form where u_id= = #{userId}
     </select>
-    <insert id="addOrderFrom" parameterType="entitys.OrderForm" >
-        insert into order_form(u_id,prod_id,order_price) values(#{orderForm.userId},#{orderForm.prodId},#{orderFrom.orderPrice})
+    <!--
+    useGeneratedKeys：必须设置为true，否则无法获取到主键id。
+    keyProperty：设置为POJO对象的主键id属性名称。可以接受selectKey子元素返回的值
+    keyColumn：设置为数据库记录的主键id字段名称。
+    以上方式不适用于Oracle
+ -->
+    <insert id="addOrderFrom" parameterType="entitys.OrderForm" useGeneratedKeys="true" keyProperty="orderFormId" keyColumn="order_form_id" >
+        insert into order_form(u_id,prod_id,order_price) values(#{userId},#{prodId},#{orderPrice})
     </insert>
     <delete id="deleteOrderFrom" parameterType="entitys.OrderForm">
-        delete from order_form where order_form_id=#{orderForm.userId}
+        delete from order_form where order_form_id=#{userId}
     </delete>
 </mapper>

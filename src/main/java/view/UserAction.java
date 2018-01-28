@@ -29,15 +29,15 @@ public class UserAction  {
      *
      */
     @RequestMapping("/addUser.action")
-    public void addUserData(UserData userData) {//使用javabean自动装配机制 把前端参数封装到bean中
-//        UserData userData = null;
-//        UserInfor userInfor = null;
-        System.out.println(userData);
-
+    public void addUserData(UserData userData,UserInfor userInfor) {//使用javabean自动装配机制 把前端参数封装到bean中
+        System.out.println("添加userData之前用于查看userId是否加入："+userData);
         //添加
-        //userService.addUserData(userData);
-
-        //userService.addUserInfor(userData.getUserInfors().get(0));
+        userService.addUserData(userData);
+        System.out.println("执行userData后，查看userId是否加入："+userData);
+        //用户关联信息对应的用户id
+        userInfor.setUserData(userData);
+        //用户关联信息
+        userService.addUserInfor(userInfor);
     }
 
     /**

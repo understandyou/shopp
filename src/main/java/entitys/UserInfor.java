@@ -6,6 +6,16 @@ public class UserInfor {
     private String phone;
     private UserData userData;
 
+    @Override
+    public String toString() {
+        return "UserInfor{" +
+                "userInforId=" + userInforId +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", userData=" + userData +
+                '}';
+    }
+
     /**
      * 用户基本信息
      * @return

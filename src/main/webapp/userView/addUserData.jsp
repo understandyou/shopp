@@ -12,9 +12,10 @@
 </head>
 <body>
     <form action="/userAction/addUser.action" method="post">
-        用 户 名：<input type="text" /><br/>
-        用户密码：<input type="text" /><br/>
-        用户地址：<input type="text" /><br/>
+        用 户 名：<input type="text" name="userName" /><br/>
+        用户密码：<input type="password" name="passWord" /><br/>
+        地址：<input type="text" name="address" /><br/>
+        电话：<input type="text" name="phone" /><br/>
         <input type="submit" value="注册" />
     </form>
 </body>

@@ -1,9 +1,12 @@
 package entitys;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class OrderForm {
     private Integer orderFormId;
     private UserData userData;
-    private Produce Produce;
+    private Producet Producet;
     private Double orderPrice;
     private UserInfor userInfor;
 
@@ -43,16 +46,16 @@ public class OrderForm {
      * 商品
      * @return
      */
-    public entitys.Produce getProduce() {
-        return Produce;
+    public Producet getProducet() {
+        return Producet;
     }
 
     /**
      * 商品
-     * @param produce
+     * @param producet
      */
-    public void setProduce(entitys.Produce produce) {
-        Produce = produce;
+    public void setProducet(Producet producet) {
+        Producet = producet;
     }
 
     /**

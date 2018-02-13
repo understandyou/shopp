@@ -1,5 +1,8 @@
 package entitys;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class UserInfor {
     private  Integer userInforId;
     private String address;

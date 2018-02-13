@@ -1,10 +1,29 @@
 package entitys;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Vendors {
     private Integer vendId;
-    private Double vendPrice;
+    private Double vendName;
     private String VendAddress;
     private String vendPhone;
+
+    /**
+     * 生产厂名字
+     * @return
+     */
+    public Double getVendName() {
+        return vendName;
+    }
+
+    /**
+     * 生产厂名字
+     * @param vendName
+     */
+    public void setVendName(Double vendName) {
+        this.vendName = vendName;
+    }
 
     /**
      * 生产厂ID
@@ -18,19 +37,7 @@ public class Vendors {
     public void setVendId(Integer vendId) {
         this.vendId = vendId;
     }
-    /**
-     * 生产厂价格
-     * @return
-     */
-    public Double getVendPrice() {
-        return vendPrice;
-    }
-    /**
-     * 生产厂价格
-     */
-    public void setVendPrice(Double vendPrice) {
-        this.vendPrice = vendPrice;
-    }
+
     /**
      * 生产厂地址
      * @return

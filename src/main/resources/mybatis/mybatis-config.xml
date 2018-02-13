@@ -5,7 +5,7 @@
     <!--<typeAliases>-->
         <!--<typeAlias alias="UserData" type="main.java.entitys.UserData" />-->
         <!--<typeAlias alias="OrderForm" type="main.java.entitys.OrderForm"/>-->
-        <!--<typeAlias alias="Produce" type="main.java.entitys.Produce"/>-->
+        <!--<typeAlias alias="Producet" type="main.java.entitys.Producett"/>-->
         <!--<typeAlias alias="ShoopingCart" type="main.java.entitys.ShoopingCart"/>-->
         <!--<typeAlias alias="UserInfor" type="main.java.entitys.UserInfor"/>-->
         <!--<typeAlias alias="Vendors" type="main.java.entitys.Vendors"/>-->

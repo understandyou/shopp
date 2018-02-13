@@ -18,5 +18,6 @@
         电话：<input type="text" name="phone" /><br/>
         <input type="submit" value="注册" />
     </form>
+<a href="/HomeInit/init.action">测试</a>
 </body>
 </html>

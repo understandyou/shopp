@@ -23,13 +23,15 @@
             </discriminator>-->
         </association>
         <!--读作：oftype类型的javatype的proerty集合-->
-        <collection property="produce" javaType="List" ofType="entitys.Produce">
-            <id property="produce" column="prod_id" />
+        <collection property="producet" javaType="List" ofType="entitys.Producet">
+            <id property="producet" column="prod_id" />
             <result property="prodCurrent" column="prod_current"/>
             <result property="prodPrice" column="prod_price"/>
             <result property="prodDescribe" column="prod_describe"/>
+            <result property="prodImg" column="prod_img"/>
+            <result property="prodClass" column="prod_class" />
             <collection property="vendors" column="vend_id">
-                <result property="vendPrice" column="vend_price"></result>
+                <result property="vendName" column="vend_name"></result>
                 <result property="VendAddress" column="vend_address" />
                 <result property="vendPhone" column="vend_phone" />
             </collection>

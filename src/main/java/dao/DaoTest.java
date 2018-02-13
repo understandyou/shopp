@@ -1,6 +1,7 @@
 package dao;
 
 import entitys.UserData;
+import entitys.UserInfor;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -21,9 +22,16 @@ public class DaoTest {
         UserData userData = new UserData();
         userData.setUserName("小明");
         userData.setPassWord("123");
+        userData.setUserId(1);
         System.out.println("before:"+userData.getUserId());
-        userDao.addUserData(userData);
-        System.out.println("after:"+userData.getUserId());
+        //userDao.addUserData(userData);
+        UserInfor ui = new UserInfor();
+        ui.setUserData(userData);
+        ui.setAddress("成都");
+        ui.setPhone("123");
+        //测试添加地址信息
+        userDao.addUserInfor(ui);
+        System.out.println("after:"+ui.getUserInforId());
         session.commit();
         session.close();
     }

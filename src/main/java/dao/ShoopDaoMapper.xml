@@ -14,18 +14,20 @@
             <result property="passWord" column="u_pwd"></result>
         </association>
         <!--读作：oftype类型的javatype的proerty集合-->
-        <collection property="Produce" javaType="List" ofType="entitys.Produce" column="produce_id">
-            <id property="produce" column="prod_id" />
+        <collection property="Produce" javaType="List" ofType="entitys.Producet" column="produce_id">
+            <id property="producet" column="prod_id" />
             <result property="prodCurrent" column="prod_current"/>
             <result property="prodPrice" column="prod_price"/>
             <result property="prodDescribe" column="prod_describe"/>
+            <result property="prodImg" column="prod_img"/>
+            <result property="prodClass" column="prod_class" />
             <collection property="vendors" column="vend_id">
-                <result property="vendPrice" column="vend_price"/>
+                <result property="vendName" column="vend_name"/>
                 <result property="VendAddress" column="vend_address" />
                 <result property="vendPhone" column="vend_phone" />
             </collection>
-            <!--<discriminator javaType="Produce" column="produce_id">
-                <case value="1" resultType="entitys.Produce"/>
+            <!--<discriminator javaType="Producet" column="produce_id">
+                <case value="1" resultType="entitys.Producett"/>
             </discriminator>-->
         </collection>
     </resultMap>
@@ -36,7 +38,7 @@
     <!-- keyproperty自动填充到bean对应的属性中，用于插入数据后返回当前的主键id-->
     <insert id="addShoop" parameterType="entitys.ShoopingCart" useGeneratedKeys="true" keyProperty="shoopingCartId" keyColumn="shooping_cart_id">
         insert into shooping_cart(u_id,produce_id,num)
-        values(#{userData.userId},#{produce.prodId}),#{num}
+        values(#{userData.userId},#{producet.prodId}),#{num}
     </insert>
     <delete id="deleteShoop" parameterType="entitys.ShoopingCart">
         delete from shooping_cart

@@ -34,18 +34,17 @@ public class UserAction  {
         //添加
         userService.addUserData(userData);
         System.out.println("执行userData后，查看userId是否加入："+userData);
-        //用户关联信息对应的用户id
         userInfor.setUserData(userData);
-        //用户关联信息
-        userService.addUserInfor(userInfor);
+        addUserInfor(userInfor);
     }
 
     /**
      * 添加地址信息
      *
      */
-    public void addUserInfor() {
-
+    public void addUserInfor(UserInfor userInfor) {
+        //用户关联信息
+        userService.addUserInfor(userInfor);
     }
 
     /**

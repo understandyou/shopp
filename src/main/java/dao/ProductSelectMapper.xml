@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ProductSelect">
+    <resultMap id="Producet" type="entitys.Producet">
+        <id property="prodId" column="prod_id"/>
+        <result property="prodCurrent" column="prod_current"/>
+        <result property="prodPrice" column="prod_price"/>
+        <result property="prodDescribe" column="prod_describe"/>
+        <result property="prodImg" column="prod_img"/>
+        <result property="prodClass" column="prod_class" />
+        <!-- 理论上javatype在指定对象的时候写上最好，指定非对象字段可以不用写，对象为测试是否能不写-->
+        <association property="vendors" column="vend_id" javaType="entitys.Vendors">
+            <id property="vendId" column="vend_id"></id>
+            <result property="vendName" column="vend_name"/>
+            <result property="VendAddress" column="vend_address"/>
+            <result property="vendPhone" column="vend_phone"/>
+        </association>
+    </resultMap>
+    <select id="prodSelect" resultMap="Producet">
+        select * from produce
+    </select>
+    <!-- 用于按类别查找-->
+<!--    <select id="prodSelect" resultMap="Producet" parameterType="entitys.Producet">
+        select * from produce where prod_class=#{prodClass}
+    </select>-->
+</mapper>

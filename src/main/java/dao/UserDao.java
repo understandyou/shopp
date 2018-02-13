@@ -1,14 +1,8 @@
 package dao;
 
-import entitys.Produce;
+import entitys.Producet;
 import entitys.UserData;
 import entitys.UserInfor;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 /**
  * @author 植杨爽
@@ -48,5 +42,5 @@ public interface UserDao {
     UserData selectUserData(Integer userId);
 
     //@Select("select prod_id,prod_current,prod_price,prod_describe from produce where u_id=#{userId}")
-    Produce selectProduce(Integer userId);
+    Producet selectProduce(Integer userId);
 }

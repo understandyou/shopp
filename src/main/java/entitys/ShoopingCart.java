@@ -1,12 +1,15 @@
 package entitys;
 
+import org.springframework.stereotype.Repository;
+
 /**
  * 购物车bean
  */
+@Repository
 public class ShoopingCart {
     private Integer  shoopingCartId;
     private UserData userData;
-    private Produce produce;
+    private Producet producet;
     private Integer num;
 
     /**
@@ -60,14 +63,14 @@ public class ShoopingCart {
      * 购物车中的商品信息
      * @return
      */
-    public Produce getProduce() {
-        return produce;
+    public Producet getProducet() {
+        return producet;
     }
 
     /**
      * 购物车中的商品信息
      */
-    public void setProduce(Produce produce) {
-        this.produce = produce;
+    public void setProducet(Producet producet) {
+        this.producet = producet;
     }
 }

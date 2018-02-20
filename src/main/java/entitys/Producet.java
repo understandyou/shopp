@@ -11,6 +11,8 @@ public class Producet {
     private String prodImg;
     private Vendors vendors;
     private String prodClass;
+    private String prodName;
+    private String reserve;//保留字段
 
     @Override
     public String toString() {
@@ -22,7 +24,41 @@ public class Producet {
                 ", prodImg='" + prodImg + '\'' +
                 ", vendors=" + vendors +
                 ", prodClass='" + prodClass + '\'' +
+                ", prodName='" + prodName + '\'' +
+                ", reserve='" + reserve + '\'' +
                 '}';
+    }
+
+    /**
+     * 商品名称
+     * @return
+     */
+    public String getProdName() {
+        return prodName;
+    }
+
+    /**
+     * 商品名称
+     * @param prodName
+     */
+    public void setProdName(String prodName) {
+        this.prodName = prodName;
+    }
+
+    /**
+     * 保留字段
+     * @return
+     */
+    public String getReserve() {
+        return reserve;
+    }
+
+    /**
+     * 保留字段
+     * @param reserve
+     */
+    public void setReserve(String reserve) {
+        this.reserve = reserve;
     }
 
     /**

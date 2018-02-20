@@ -19,6 +19,7 @@ import java.util.Map;
 // 第一个参数value：将map中对应的key放到session中
 // 第二个参数types：将map中所对应的类型放到session中，例如一下为将所有String型放到session中
 //@SessionAttributes(value = {"map的key","..."},types = {String.class})
+    @SessionAttributes({"session"})
 @Controller
 @RequestMapping("/HomeInit")
 public class HomeInit {
@@ -29,12 +30,14 @@ public class HomeInit {
      * 初始化首页
      */
     @RequestMapping("/init.action")
-    public ModelAndView init(){//ModelAndView包含模型数据和目标页面
+    public ModelAndView init(Map<String,List<?>> productMap){//ModelAndView包含模型数据和目标页面
         ModelAndView modelAndView = new ModelAndView("Home");
         //调用service层返回数据
         List<Producet> producets = productSelectService.prodSelect();
         //加入模型数据
         modelAndView.addObject("producets", producets);
+        //将模型数据一并加入到session中
+        productMap.put("session",producets);
         return modelAndView;
     }
 

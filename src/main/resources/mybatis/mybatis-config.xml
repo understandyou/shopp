@@ -23,6 +23,6 @@
     </environments>
 
     <mappers>
-        <mapper resource="dao/UserDaoMapper.xml"></mapper>
+        <mapper resource="dao/ProductSelectMapper.xml"></mapper>
     </mappers>
 </configuration>

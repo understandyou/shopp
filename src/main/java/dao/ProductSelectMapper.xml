@@ -8,8 +8,9 @@
         <result property="prodDescribe" column="prod_describe"/>
         <result property="prodImg" column="prod_img"/>
         <result property="prodClass" column="prod_class" />
-        <!-- 理论上javatype在指定对象的时候写上最好，指定非对象字段可以不用写，对象为测试是否能不写-->
-        <association property="vendors" column="vend_id" javaType="entitys.Vendors">
+        <result property="prodName" column="prod_name" />
+        <result property="reserve" column="reserve" />
+        <association property="vendors" javaType="entitys.Vendors" column="vend_id">
             <id property="vendId" column="vend_id"></id>
             <result property="vendName" column="vend_name"/>
             <result property="VendAddress" column="vend_address"/>
@@ -17,7 +18,10 @@
         </association>
     </resultMap>
     <select id="prodSelect" resultMap="Producet">
-        select * from produce
+        select produce.*,vendors.vend_address,vendors.vend_name,vendors.vend_phone
+        from produce
+        inner join vendors
+        on produce.vend_id=vendors.vend_id
     </select>
     <!-- 用于按类别查找-->
 <!--    <select id="prodSelect" resultMap="Producet" parameterType="entitys.Producet">

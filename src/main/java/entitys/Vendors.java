@@ -5,23 +5,25 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class Vendors {
     private Integer vendId;
-    private Double vendName;
+    private String vendName;
     private String VendAddress;
     private String vendPhone;
 
-    /**
-     * 生产厂名字
-     * @return
-     */
-    public Double getVendName() {
+    @Override
+    public String toString() {
+        return "Vendors{" +
+                "vendId=" + vendId +
+                ", vendName=" + vendName +
+                ", VendAddress='" + VendAddress + '\'' +
+                ", vendPhone='" + vendPhone + '\'' +
+                '}';
+    }
+
+    public String getVendName() {
         return vendName;
     }
 
-    /**
-     * 生产厂名字
-     * @param vendName
-     */
-    public void setVendName(Double vendName) {
+    public void setVendName(String vendName) {
         this.vendName = vendName;
     }
 

@@ -36,6 +36,7 @@ public class HomeInit {
         List<Producet> producets = productSelectService.prodSelect();
         //加入模型数据
         modelAndView.addObject("producets", producets);
+        System.out.println("测试汉字："+producets.get(0).getProdName());
         //将模型数据一并加入到session中
         productMap.put("session",producets);
         return modelAndView;

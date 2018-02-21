@@ -13,6 +13,10 @@
         配置一些 messageconverter。
     -->
     <mvc:annotation-driven></mvc:annotation-driven>
+    <!--将静态资源交由默认servlet处理-->
+    <mvc:default-servlet-handler/>
+    <!--处理静态资源方法2-->
+    <mvc:resources location="references/" mapping="/references/**"/>
     <context:annotation-config/>
     <!--<bean class="org.springframework.context.annotation.ContextAnnotationAutowireCandidateResolver">-->
         <!--<property name=""-->

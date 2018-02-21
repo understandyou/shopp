@@ -15,7 +15,7 @@
     <%--<meta name="viewport" content="width=device-width, initial-scale=1">--%>
     <title>Title</title>
     <%--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--%>
-    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/references/bootstrap-3.3.7-dist/css/bootstrap.css">
 </head>
 <body>
    <%-- <c:forEach var="item" items="${requestScope.producets}">
@@ -44,7 +44,7 @@
                             </div>
                             <p>${item.vendors.vendName}</p>
                         </div>
-                        测试session:${item.prodImg}
+                        测mm试session:${item.prodImg}
                     </div>
                 </c:forEach>
             </div>

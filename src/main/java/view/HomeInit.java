@@ -31,7 +31,7 @@ public class HomeInit {
      */
     @RequestMapping("/init.action")
     public ModelAndView init(Map<String,List<?>> productMap){//ModelAndView包含模型数据和目标页面
-        ModelAndView modelAndView = new ModelAndView("Home");
+        ModelAndView modelAndView = new ModelAndView("forward:/Home.jsp");
         //调用service层返回数据
         List<Producet> producets = productSelectService.prodSelect();
         //加入模型数据

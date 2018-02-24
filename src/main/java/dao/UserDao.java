@@ -34,13 +34,18 @@ public interface UserDao {
     void updateUserInfor(UserInfor userInfor);
 
     /**
-     *
-     * @param userId
-     * @return
+     * 查询用户是否存在（login）
+     * @param userData
+     * @return 返回对应id，如果有id则表明是存在并且对应正确的账户
      */
-    //@Select("select u_id,u_name,u_pwd from user_data where u_id=#{userId}")
-    UserData selectUserData(Integer userId);
+    Integer loginUserData(UserData userData);
 
-    //@Select("select prod_id,prod_current,prod_price,prod_describe from produce where u_id=#{userId}")
-    Producet selectProduce(Integer userId);
+    /**
+     * 验证是否重名
+     * @param userData
+     * @return 返回对应id，如果有id则表明用户名（重复）
+     */
+    Integer selectUserData(UserData userData);
+
+
 }

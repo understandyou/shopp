@@ -3,9 +3,13 @@
 <mapper namespace="dao.UserDao">
 
 
-    <!--<select id="selectShoop" parameterType="userData">-->
-        <!--select * from shooping_cart where u_id=#{userDate.userId}-->
-    <!--</select>-->
+    <select id="loginUserData" parameterType="entitys.UserData" resultType="java.lang.Integer">
+        select u_id from u_data where u_name=#{userName} and u_pwd=#{passWord}
+    </select>
+
+    <select id="selectUserData" parameterType="entitys.UserData" resultType="java.lang.Integer">
+        select u_id from u_data where u_name=#{userName}
+    </select>
 
     <!--
         useGeneratedKeys：必须设置为true，否则无法获取到主键id。

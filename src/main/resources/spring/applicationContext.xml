@@ -18,9 +18,18 @@
     <!--处理静态资源方法2-->
     <mvc:resources location="references/" mapping="/references/**"/>
     <context:annotation-config/>
+
+    <!-- 配置简单的控制器处理适配器 -->
+    <!-- SimpleControllerHandlerAdapter：即简单控制器处理适配器， -->
+    <!-- 所有实现了org.springframework.web.servlet.mvc.Controller 接口的Bean作为Springmvc的后端控制器。 -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />
+    <!--链接：https://www.imooc.com/article/4293-->
     <!--<bean class="org.springframework.context.annotation.ContextAnnotationAutowireCandidateResolver">-->
         <!--<property name=""-->
     <!--</bean>-->
+    <!--视图解析器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>-->
     <!--视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--前缀-->

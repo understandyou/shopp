@@ -80,4 +80,28 @@ public class UserServiceImpl implements UserService {
     public void updateUserInfor(UserInfor userInfor) {
 
     }
+
+    /**
+     * 查询是否重名
+     *
+     * @param userData
+     * @return 返回查询到的用户id
+     */
+    @Override
+    public Integer selectUserData(UserData userData) {
+        return  null;
+    }
+
+    /**
+     * 查询用户是否存在
+     * @param userData
+     * @return 返回查询到的用户id
+     */
+    @Override
+    public Integer loginUserData(UserData userData) {
+        return userDao.loginUserData(userData);
+
+    }
+
+
 }

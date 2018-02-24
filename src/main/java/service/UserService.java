@@ -27,4 +27,14 @@ public interface UserService {
      * @param userInfor
      */
     void updateUserInfor(UserInfor userInfor);
+
+    /**
+     * 查询是否重名
+     */
+    Integer selectUserData(UserData userData);
+
+    /**
+     * 查询用户是否存在
+     */
+    Integer loginUserData(UserData userData);
 }
